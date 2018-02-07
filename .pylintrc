@@ -1,0 +1,6 @@
+[MESSAGES CONTROL]
+# C0103 : Invalid variable, class, function name
+# C0111 : Missing docstring
+# C0301 : Line too long
+# C0325 : Unnecessary parens after %r keyword
+disable=C0103,C0111,C0301,C0325,R0903
