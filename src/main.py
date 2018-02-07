@@ -31,6 +31,7 @@ def main():
     global_step_tensor = tf.Variable(0, name='global_step', trainable=False)
 
     # TODO: wはこのlearning_rateで大丈夫だがbの収束が遅い
+    # optimizer = tf.train.AdamOptimizer(learning_rate=1e-2)
     optimizer = tf.train.GradientDescentOptimizer(learning_rate=1e-4)
     train = optimizer.minimize(loss, global_step=global_step_tensor)
 
