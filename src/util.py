@@ -30,6 +30,13 @@ def show_data(config):
     plt.savefig(config.data_dir + "/" + "image.png")
 
 
+def get_trainable_variable(name):
+    for v in tf.trainable_variables():
+        if v.name == name:
+            return v
+    raise Exception("No variable named %s" % name)
+
+
 def show_all_variables():
     keys = tf.get_default_graph().get_all_collection_keys()
     for key in keys:

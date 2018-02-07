@@ -5,7 +5,7 @@ from __future__ import print_function
 import tensorflow as tf
 
 from . import model
-from .util import get_data
+from .util import get_data, get_trainable_variable
 from .config import default_config
 
 
@@ -34,11 +34,8 @@ def main():
     optimizer = tf.train.GradientDescentOptimizer(learning_rate=1e-4)
     train = optimizer.minimize(loss, global_step=global_step_tensor)
 
-    for v in tf.trainable_variables():
-        if v.name == "w:0":
-            w = v
-        if v.name == "b:0":
-            b = v
+    w = get_trainable_variable("w:0")
+    b = get_trainable_variable("b:0")
 
     with tf.Session() as sess:
         sess.run([tf.global_variables_initializer(), tf.local_variables_initializer()])
