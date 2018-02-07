@@ -14,10 +14,10 @@ def batch(np_data, batch_size):
         data = tf.constant(np_data, dtype=tf.float64)
         queue = tf.train.input_producer(data, shuffle=False)
         dequeue = queue.dequeue()
-        batch = tf.train.batch([dequeue], batch_size=batch_size)
+        batch_tensor = tf.train.batch([dequeue], batch_size=batch_size)
         # 1 is dimension of w and b
         # 当たり前だがこれをやらないとmodelの計算がめちゃめちゃになる
-        return tf.reshape(batch, (batch_size, 1))
+        return tf.reshape(batch_tensor, (batch_size, 1))
 
 
 def main():
