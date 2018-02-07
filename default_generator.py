@@ -7,7 +7,7 @@ def _correct_model(x):
     return x * 3 + 2
 
 
-def generate():
+def generate(_dimension):
     r = np.float64(np.random.rand(SIZE))
     xs = np.multiply(r, 100) - 50
     ys = _correct_model(xs)

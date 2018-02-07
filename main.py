@@ -26,7 +26,7 @@ def main():
     x_raw, y_raw = get_data(default_config)
     x = batch(x_raw, batch_size)
     y = batch(y_raw, batch_size)
-    y_inferred = model.inference(x)
+    y_inferred = model.inference(x, default_config.dimension)
     loss = model.loss(y_inferred, y)
     global_step_tensor = tf.Variable(0, name='global_step', trainable=False)
 

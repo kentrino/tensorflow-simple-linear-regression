@@ -8,5 +8,6 @@ default_config = Map(
     data_dir=ROOT + "/data",
     train_dir=ROOT + "/train",
     data_file="test.npz",
-    generate=generate
+    generate=generate,
+    dimension=1
 )

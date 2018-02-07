@@ -1,7 +1,5 @@
 import tensorflow as tf
 
-DIMENSION = 1
-
 
 def weight_variable(name, shape):
     # with tf.device('/cpu:0'):
@@ -17,9 +15,9 @@ def bias_variable(name, shape):
     return var
 
 
-def inference(x):
-    w = weight_variable("w", [DIMENSION])
-    b = bias_variable("b", [DIMENSION])
+def inference(x, dimension):
+    w = weight_variable("w", [dimension])
+    b = bias_variable("b", [dimension])
     y = tf.add(tf.multiply(w, x), b)
     return y
 

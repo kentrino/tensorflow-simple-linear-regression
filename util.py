@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 
 def _generate_data(config):
-    x, y = config.generate()
+    x, y = config.generate(config.dimension)
     if not tf.gfile.Exists(config.data_dir):
         tf.gfile.MakeDirs(config.data_dir)
     data_path = config.data_dir + "/" + config.data_file
