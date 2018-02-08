@@ -8,6 +8,8 @@ from . import model
 from .util import get_data, get_trainable_variable
 from .config import default_config
 
+tf.app.flags.DEFINE_integer("batch_size", 100, "Batch size.")
+
 
 def batch(np_data, batch_size):
     with tf.name_scope('input'):
@@ -20,8 +22,8 @@ def batch(np_data, batch_size):
         return tf.reshape(batch_tensor, (batch_size, 1))
 
 
-def main():
-    batch_size = 10
+def main(_argv):
+    batch_size = tf.app.flags.FLAGS.batch_size
 
     x_raw, y_raw = get_data(default_config)
     x = batch(x_raw, batch_size)
@@ -57,4 +59,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    tf.app.run(main=main)
